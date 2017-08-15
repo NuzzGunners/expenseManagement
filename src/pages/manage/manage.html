@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Manage</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <form (ngSubmit)="save()">
+      <ion-item>
+        <ion-label>วันที่</ion-label>
+        <ion-datetime displayFormat="DD/MMM/YYYY" name="transDate" [(ngModel)]="expense.transDate" monthShortNames="มค, กพ, มีค, เมษ, พค, มิย, กค, สค, กย, ตค, พย, ธค"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>ประเภท</ion-label>
+        <ion-select interface="popover" [(ngModel)]="expense.transType" name="transType">
+          <ion-option value="1">รายรับ</ion-option>
+          <ion-option value="2">รายจ่าย</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>รายละเอียด</ion-label>
+        <ion-textarea [(ngModel)]="expense.transDetail" name="transDetail"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>จำนวน</ion-label>
+        <ion-input type="number" [(ngModel)]="expense.transAmt" name="transAmt"></ion-input>
+      </ion-item>
+      <ion-item>
+        <button [disabled]="!validForm()" type="submit" ion-button block outline>บันทึก</button>
+      </ion-item>
+    </form>
+  </ion-list>
+</ion-content>

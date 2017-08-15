@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Statistics</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="list-avatar-page">
+
+  <ion-list *ngFor="let item of data.slice().reverse()">
+
+    <ion-list-header>{{item.month}}</ion-list-header>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <ion-icon name="arrow-round-up" class="iconsIn"></ion-icon>
+      </ion-avatar>
+      <h2>{{item.income}}</h2>
+      <p>รายรับ</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <ion-icon name="arrow-round-down" class="iconsOut"></ion-icon>
+      </ion-avatar>
+      <h2>{{item.outcome}}</h2>
+      <p>รายจ่าย</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <ion-icon name="star" class="iconsNet"></ion-icon>
+      </ion-avatar>
+      <h2>{{item.income - item.outcome}}</h2>
+      <p>คงเหลือ</p>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
